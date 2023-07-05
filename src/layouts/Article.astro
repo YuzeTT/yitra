@@ -1,0 +1,39 @@
+---
+import '@/styles/globals.css'
+import Navbar from '@/components/Navbar.astro';
+import AvatarBox from '@/components/AvatarBox'
+import BackButton from '@/components/BackButton'
+import { Icon } from 'astro-icon'
+
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{frontmatter.title} - Yitra</title>
+	</head>
+	<body>
+		<Navbar />
+		<div class="max-w-2xl mx-auto text-gray-700">
+			<div class="m-6">
+				<h1 class="text-4xl font-bold">{frontmatter.title}</h1>
+				<div class="mt-4 text-gray-400 flex items-center gap-2">
+					<AvatarBox img={`https://github.com/${frontmatter.author}.png`} name={(frontmatter.author).substr(0,2)} client:load />
+					{frontmatter.author}
+				</div>
+				<article class="prose prose-gray mt-10">
+					<slot />
+				</article>
+				<BackButton client:load>
+					<Icon name="ri:arrow-left-s-line" class="w-4" />
+				</BackButton>
+			</div>
+		</div>
+	</body>
+</html>

@@ -4,8 +4,17 @@ export default function Select() {
   const [first, setFirst] = useState(0)
   const firstList = ['卦理基础','数术']
   const secondList = [
-    ['五行生克','先后天方位','八卦类像','天干地支'],
-    ['梅花易数','六爻','六壬'],
+    [
+      { title: '五行生克', url: '/s/wuxing' },
+      { title: '先后天方位', url: '' },
+      { title: '八卦类像', url: '' },
+      { title: '天干地支', url: '' },
+    ],
+    [
+      { title: '梅花易数', url: '' },
+      { title: '六爻', url: '' },
+      { title: '六壬', url: '' },
+    ],
   ]
   return (
     <div>
@@ -24,10 +33,10 @@ export default function Select() {
       <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-100">
         {
           secondList[first].map((item, key)=>{
-            return <div key={key} className={`px-7 py-4 text-lg transition duration-300 bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center gap-2 cursor-pointer group`} onClick={()=>{}}>
+            return <a href={item.url} key={key} className={`px-7 py-4 text-lg transition duration-300 bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center gap-2 group`} onClick={()=>{}}>
               <div className={`before:content-[">"] group-hover:animate-left `}></div>
-              {item}
-            </div>
+              {item.title}
+            </a>
           })
         }
       </div>
