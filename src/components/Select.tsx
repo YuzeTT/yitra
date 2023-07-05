@@ -33,7 +33,7 @@ export default function Select() {
       <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-100">
         {
           secondList[first].map((item, key)=>{
-            return <a href={item.url} key={key} className={`px-7 py-4 text-lg transition duration-300 bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center gap-2 group`} onClick={()=>{}}>
+            return <a href={item.url} key={key} className={`px-7 py-4 text-lg transition duration-300 bg-gray-100 hover:bg-blue-500 hover:text-white flex items-center gap-2 group ${item.url === '' ?'opacity-30 after:content-["编写中"] after:ml-0.5 after:text-sm after:text-orange-500 disabled pointer-events-none' : ''}`}>
               <div className={`before:content-[">"] group-hover:animate-left `}></div>
               {item.title}
             </a>
