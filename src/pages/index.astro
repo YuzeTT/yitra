@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Select from '@/components/Select'
+import { Button } from "@/components/ui/button"
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="font-sans m-5">
+		<div class="py-10">
+			<h1 class="font-bold text-3xl">选择阅读章节</h1>
+			<p class="mt-4 text-gray-500">我们对内容进行了分类，以便您快速查阅内容。</p>
+		</div>
+		<!-- <Button className="font-bold">Hello World</Button> -->
+	</main>
+	<Select client:load />
+</Layout>
