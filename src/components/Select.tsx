@@ -6,6 +6,7 @@ export default function Select() {
   const secondList = [
     [
       { title: '五行生克', url: '/s/wuxing' },
+      { title: '五行所属', url: '/s/suoshu' },
       { title: '先后天方位', url: '' },
       { title: '八卦类像', url: '' },
       { title: '天干地支', url: '' },
